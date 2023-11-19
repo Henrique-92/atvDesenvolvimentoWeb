@@ -21,18 +21,6 @@ const router = express.Router();
 
 router.get('/', (req, res) => res.json({ message: 'Funcionando!' }));
 
-// GET dog
-router.get('/dog', async function(req, res, next) {
-  try{
-    const apidog = await fetch('https://dog.ceo/api/breed/hound/list');
-    res.json(await apidog.json());
-  }
-  catch(ex){
-    console.log(ex);
-    res.status(400).json({erro: `${ex}`});
-  }
-}) 
-
 /* GET aluno */
 router.get('/aluno/:id?', async function(req, res, next) {
     try{
